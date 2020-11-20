@@ -1,0 +1,62 @@
+
+#include "imports.hpp"
+
+onLoadName = "Tactique Airsoft";
+overviewTextLocked = "";
+author="Mysterfreez / AureProd";
+dev = "Mysterfreez / AureProd";
+OnLoadMission = "<t color='#1d24e0'>Un mode de tactique airsoft<br /><t color='#a62802'>Du pvp et du fun !<br /><t color='#1d24e0'>Devellopement: <t color='#a62802'>3.0<br /><t color='#1d24e0'>Crée par: <t color='#a62802'>Mysterfreez / AureProd";
+overviewText="";
+loadScreen="TA-image\loadScreen.jpg";
+onLoadIntro = "";
+respawnOnStart = -1;
+
+// réapparition
+respawn = "INSTANT";
+respawnDelay = 0;
+respawnDialog = false;
+respawnButton = 0;
+
+// ignorer l'écran de sélection de rôle
+skipLobby = 0;
+joinUnassigned = 1;
+briefing = 0;
+
+// désactiver iA
+disabledAI    = 1;
+
+ // desactive les cannaux vocaux
+disableChannels[] = { 0, 2, 3, 4};
+
+// affichage des HUD
+showHUD[] = {1, 1, 1, 1, 1, 0, 0, 1, 1, 1};
+
+class Header
+{
+	gameType = PvP;
+    minPlayers = 1;
+    maxPlayers = 14;
+};
+
+class CfgDebriefing 
+{
+    
+};
+
+class CfgServer 
+{
+    DebugMode = 0; //Enable many server/hc debugging logs. Default: 0 (1 = Enabled / 0 = Disabled)
+    HeadlessSupport = 0; //Enable/Disable Headless client support. Default: 1 (1 = Enabled / 0 = Disabled)
+};
+
+class RscTitles
+{
+    #include "dialog\autres\chargements.hpp"
+    #include "dialog\interfaces\statusBar.hpp"
+    #include "dialog\vote_map\titles.hpp"
+    #include "dialog\vote_map\photo_vote_map.hpp"
+    #include "dialog\interfaces\interface_rouge.hpp"
+    #include "dialog\interfaces\interface_espion.hpp"
+    #include "dialog\interfaces\interface_bleu.hpp"
+    #include "dialog\interfaces\bombe_iem.hpp"
+};
