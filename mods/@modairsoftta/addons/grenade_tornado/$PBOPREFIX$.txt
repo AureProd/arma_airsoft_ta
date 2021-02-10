@@ -1,0 +1,4 @@
+//<'grenade_tornado.pbo' properties via Mikero's dos tools, dll version 7.96>
+prefix=grenade_tornado;
+//PboType=Arma Addon;
+//</properties>
