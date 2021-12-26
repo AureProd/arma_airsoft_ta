@@ -48,10 +48,19 @@ A ne pas faire si Steam est déjà installé
 $ useradd -m -s /bin/bash <USERNAME>
 $ su <USERNAME>
 $ mkdir ~/steam && cd ~/steam
-$ wget https://steamcdn-a.akamaihd.net/client/installer/steam.deb
-$ sudo apt install ./steam.deb
-$ chmod +x steamcmd.sh
-$ ./steamcmd.sh
+```
+
+Tutorial pour installer steamcmd to debian 11 : 
+
+![Lien du tutorial](https://user-images.githubusercontent.com/71317162/147419945-fd15c23f-a3a9-4102-8835-4df2afc4e447.png)
+
+Tutorial pour installer steamcmd to debian 11 : 
+
+![Lien du tutorial](https://user-images.githubusercontent.com/71317162/147419895-7bab3d87-bacf-4ac1-bbff-ea1c71e9e326.png)
+
+```
+$ chmod +x steamcmd
+$ ./steamcmd
 ```
 
 ## Récupération des fichiers de la mission (sur votre PC)
