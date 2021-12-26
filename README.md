@@ -61,11 +61,9 @@ Tutorial pour installer steamcmd to debian 11 :
 ```
 $ chmod +x steamcmd
 $ ./steamcmd
-$ login <USERNAME>
-$ force_install_dir /home/arma3/
-$ app_update 233780 validate
-$ exit
 ```
+
+Puis utilisez les scritps pour initialiser et update les serveurs arma
 
 ## Récupération des fichiers de la mission (sur votre PC)
 
