@@ -51,7 +51,8 @@ A ne pas faire si Steam est déjà installé
 $ useradd -m -s /bin/bash <USERNAME>
 $ su <USERNAME>
 $ mkdir ~/steam && cd ~/steam
-$ curl -sqL "https://steamcdn-a.akamaihd.net/client/installer/steamcmd_linux.tar.gz" | tar zxvf -
+$ wget https://steamcdn-a.akamaihd.net/client/installer/steam.deb
+$ tar xf steamcmd_linux.tar.gz
 $ chmod +x steamcmd.sh
 $ ./steamcmd.sh
 ```
