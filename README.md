@@ -28,11 +28,8 @@ A ne pas faire si MySQL server est déjà installé
 ```
 $ sudo apt update
 $ sudo apt upgrade
-$ sudo apt install mysql-server
+$ sudo apt install mariadb-server
 $ sudo mysql_secure_installation
-$ mysql -u root -p
-$ CREATE USER '<USERNAME>'@'%' IDENTIFIED BY '<PASSWORD>';
-$ GRANT ALL PRIVILEGES ON *.* TO '<USERNAME>'@'%' WITH GRANT OPTION;
 ```
 
 ### Création des bases de données
@@ -52,7 +49,7 @@ $ useradd -m -s /bin/bash <USERNAME>
 $ su <USERNAME>
 $ mkdir ~/steam && cd ~/steam
 $ wget https://steamcdn-a.akamaihd.net/client/installer/steam.deb
-$ tar xf steamcmd_linux.tar.gz
+$ sudo apt install ./steam.deb
 $ chmod +x steamcmd.sh
 $ ./steamcmd.sh
 ```
