@@ -50,11 +50,11 @@ $ su <USERNAME>
 $ mkdir ~/steam && cd ~/steam
 ```
 
-Tutorial pour installer steamcmd to debian 11 : 
+Tutorial pour installer steamcmd to debian 10 : [Lien du tutorial](https://developer.valvesoftware.com/wiki/SteamCMD)
 
 ![Lien du tutorial](https://user-images.githubusercontent.com/71317162/147419945-fd15c23f-a3a9-4102-8835-4df2afc4e447.png)
 
-Tutorial pour installer steamcmd to debian 11 : 
+Tutorial pour installer steamcmd to debian 11 : [Lien du tutorial](https://www.linode.com/docs/guides/install-steamcmd-for-a-steam-game-server/)
 
 ![Lien du tutorial](https://user-images.githubusercontent.com/71317162/147419895-7bab3d87-bacf-4ac1-bbff-ea1c71e9e326.png)
 
