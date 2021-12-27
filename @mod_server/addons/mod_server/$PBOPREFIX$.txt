@@ -1,0 +1,4 @@
+//<'mod_server.pbo' properties via Mikero's dos tools, dll version 7.96>
+prefix=mod_server;
+//PboType=Arma Addon;
+//</properties>

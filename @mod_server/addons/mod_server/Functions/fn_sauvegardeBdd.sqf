@@ -26,7 +26,7 @@ private _queryResult = [_query, 2] call db_fnc_asyncCall;
 
 if ((count _queryResult) < 1) then
 {
-	private _query1 = format ["INSERT INTO player (p_id, p_uid, p_name, p_money, p_tenues, p_kills, p_morts, p_win_games, p_games_played, p_niv_vip, p_niv_droits) VALUES ('', '%1', '%2', %3, '%4', %5, %6, %7, %8, %9, %10)", _steamUID, _namePlayer, _money, _tenues, _kills, _morts, _win_games, _played_games, _niveau_vip, _niveau_droits];
+	private _query1 = format ["INSERT INTO player (p_uid, p_name, p_money, p_tenues, p_kills, p_morts, p_win_games, p_games_played, p_niv_vip, p_niv_droits) VALUES ('%1', '%2', %3, '%4', %5, %6, %7, %8, %9, %10)", _steamUID, _namePlayer, _money, _tenues, _kills, _morts, _win_games, _played_games, _niveau_vip, _niveau_droits];
 	[_query1, 1] call db_fnc_asyncCall;
 	diag_log format ["Le joueur %1 a ete cree en BDD (UID: %2)", _namePlayer, _steamUID];
 };
