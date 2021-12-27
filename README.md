@@ -63,6 +63,13 @@ $ chmod +x steamcmd
 $ ./steamcmd
 ```
 
+Puis installez ces librairy pour liés la bdd au serveurs
+
+```
+$ apt-get install libtbb2:i386
+$ apt-get install libtbb2
+```
+
 Puis utilisez les scritps pour initialiser et update les serveurs arma
 
 ## Récupération des fichiers de la mission (sur votre PC)
