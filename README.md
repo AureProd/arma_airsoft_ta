@@ -72,7 +72,7 @@ $ apt-get install libtbb2
 
 Puis utilisez les scritps pour initialiser et update les serveurs arma
 
-## Récupération des fichiers de la mission (sur votre PC)
+## Récupération des fichiers de la mission
 
 ### Récupération du git
 
@@ -87,6 +87,8 @@ Abonnées vous à ces mods sur le workshop de steam (vous devez posséder Arma 3
 (Sous Windows, pour afficher le dossier ```!Workshop```, vous devez cochez l'option éléments masqués dans l'onglet affichage de l'explorateur de fichiers).
 
 Mod : [@modairsoftta](https://steamcommunity.com/sharedfiles/filedetails/?id=1947636700)
+
+(Attention : sous linux le nom des pbo et des mods doit être en minuscule, sans chiffres et sans espaces).
 
 ### Génération des fichiers pbo de la mission
 
