@@ -1,0 +1,60 @@
+services:
+  arma:
+    image: arma:latest
+    restart: always
+    environment:
+      STEAM_USER: $STEAM_USER
+      STEAM_PASSWORD: $STEAM_PASSWORD
+      ADMIN_PASSWORD: $ADMIN_PASSWORD
+      ARMA_PARAMS: -autoinit
+      MYSQL_HOST: db
+      MYSQL_PORT: 3306
+      MYSQL_DATABASE: airsoft
+      MYSQL_USER: superadmin
+      MYSQL_PASSWORD: $MYSQL_PASSWORD
+    ports:
+      - 2302-2306:2302-2306/udp
+    volumes:
+      - ./build:/server
+      - ./NewAirsotf.Altis:/configs/mpmissions/NewAirsotf.Altis
+      - ./@mod_server:/configs/servermods/@mod_server
+      - ./configs/mods.json:/configs/mods.json
+      - ./configs/server.cfg:/configs/server.cfg
+    depends_on:
+      - db
+    networks:
+      - default
+
+  db:
+    image: mariadb:10.3.35
+    restart: always
+    volumes:
+      - db:/var/lib/mysql
+      - ./configs/database.sql:/docker-entrypoint-initdb.d/database.sql
+    environment:
+      MYSQL_ROOT_PASSWORD: $MYSQL_ROOT_PASSWORD
+      MYSQL_DATABASE: airsoft
+      MYSQL_USER: superadmin
+      MYSQL_PASSWORD: $MYSQL_PASSWORD
+    networks:
+      - default
+
+  phpmyadmin:
+    image: phpmyadmin:latest
+    environment:
+      TZ: Europe/Paris
+      PMA_HOST: db
+      PMA_PORT: 3306
+    restart: always
+    depends_on:
+      - db
+    networks:
+      - default
+    ports:
+      - "8045:80"
+
+volumes:
+  db:
+
+networks:
+  default:

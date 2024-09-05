@@ -1,3 +1,15 @@
 NewAirsotf.Altis.pbo
+NewAirsotf.Altis.pbo.bak
+
 @mod_server/addons/mod_server.pbo
-mods/@modairsoftta/addons/grenade_tornado.pbo
+@mod_server/addons/mod_server.pbo.bak
+
+@modairsoftta/addons/grenade_tornado.pbo
+@modairsoftta/addons/grenade_tornado.pbo.bak
+
+~NewAirsotf.Altis/mission.sqm
+
+build
+
+.env
+docker-compose.yml
