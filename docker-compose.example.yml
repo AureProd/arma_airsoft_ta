@@ -1,6 +1,6 @@
 services:
   arma:
-    image: arma:latest
+    image: ghcr.io/aureprod/arma:latest
     restart: always
     environment:
       STEAM_USER: $STEAM_USER
