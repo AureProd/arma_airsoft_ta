@@ -3,6 +3,8 @@ services:
     image: ghcr.io/aureprod/arma:latest
     restart: always
     environment:
+      INSTANCE_NAME: $INSTANCE_NAME
+      APP_ENV: $APP_ENV
       STEAM_USER: $STEAM_USER
       STEAM_PASSWORD: $STEAM_PASSWORD
       ADMIN_PASSWORD: $ADMIN_PASSWORD
@@ -18,8 +20,8 @@ services:
       - ./build:/server
       - ./NewAirsotf.Altis:/configs/mpmissions/NewAirsotf.Altis
       - ./@mod_server:/configs/servermods/@mod_server
-      - ./configs/mods.json:/configs/mods.json
-      - ./configs/server.cfg:/configs/server.cfg
+      - ./deploy/configs/mods.json:/configs/mods.json
+      - ./deploy/configs/server.cfg:/configs/server.cfg
     depends_on:
       - db
     networks:
@@ -30,7 +32,7 @@ services:
     restart: always
     volumes:
       - db:/var/lib/mysql
-      - ./configs/database.sql:/docker-entrypoint-initdb.d/database.sql
+      - ./deploy/configs/database.sql:/docker-entrypoint-initdb.d/database.sql
     environment:
       MYSQL_ROOT_PASSWORD: $MYSQL_ROOT_PASSWORD
       MYSQL_DATABASE: airsoft
@@ -38,20 +40,6 @@ services:
       MYSQL_PASSWORD: $MYSQL_PASSWORD
     networks:
       - default
-
-  phpmyadmin:
-    image: phpmyadmin:latest
-    environment:
-      TZ: Europe/Paris
-      PMA_HOST: db
-      PMA_PORT: 3306
-    restart: always
-    depends_on:
-      - db
-    networks:
-      - default
-    ports:
-      - "8045:80"
 
 volumes:
   db:

@@ -13,3 +13,4 @@ build
 
 .env
 docker-compose.yml
+!deploy/docker-compose.yml
