@@ -1,0 +1,53 @@
+// --- Mission header ---
+class Header {
+    gameType = PvP;      // mission type: Player vs Player
+    minPlayers = 1;      // minimum players required
+    maxPlayers = 14;     // maximum players allowed
+};
+
+// --- Debriefing (empty, can be removed or customized) ---
+class CfgDebriefing {};
+
+// --- Server configuration ---
+class CfgServer {
+    DebugMode = 1;       // enable/disable debug logs (0 = off, 1 = on)
+    HeadlessSupport = 0; // headless client support (0 = off, 1 = on)
+};
+
+#include "settings\functions.hpp"
+#include "settings\sounds.hpp"
+#include "settings\notifications.hpp"
+#include "settings\interfaces.hpp"
+
+onLoadName = "Tactique Airsoft";
+overviewTextLocked = "";
+author = "Mysterfreez / AureProd";
+dev = "Mysterfreez / AureProd";
+OnLoadMission = "<t color='#1d24e0'>Un mode de tactique airsoft<br /><t color='#a62802'>Du pvp et du fun !<br /><t color='#1d24e0'>Développement: <t color='#a62802'>3.0<br /><t color='#1d24e0'>Créé par: <t color='#a62802'>Mysterfreez / AureProd";
+overviewText = "";
+loadScreen = "images\core\load_screen.jpg";
+onLoadIntro = "";
+respawnOnStart = -1;
+
+// --- Respawn settings ---
+respawn = "INSTANT";     // instant respawn
+respawnDelay = 0;        // no delay before respawn
+respawnDialog = false;   // disable respawn dialog window
+respawnButton = 0;       // disable respawn button
+
+// --- Lobby / briefing settings ---
+skipLobby = 0;           // show the role selection lobby
+joinUnassigned = 1;      // allow players to join without being assigned to a slot
+briefing = 0;            // disable briefing screen
+showMap = 0;             // prevent map from showing at mission start
+
+// --- AI settings ---
+disabledAI = 1;          // disable AI units (empty player slots won’t spawn AI)
+
+// --- Disabled voice/text channels ---
+disableChannels[] = {0, 2, 3, 4}; // disable: 0=Global, 2=Command, 3=Group, 4=Vehicle
+                               // still available: 1=Side, 5=Direct
+
+// --- HUD settings ---
+showHUD[] = {1, 1, 1, 1, 1, 0, 0, 1, 1, 1}; // control which HUD elements are visible
+
