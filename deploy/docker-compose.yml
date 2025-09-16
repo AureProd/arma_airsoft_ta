@@ -18,7 +18,7 @@ services:
       - 2302-2306:2302-2306/udp
     volumes:
       - ./build:/server
-      - ./NewAirsotf.Altis:/configs/mpmissions/NewAirsotf.Altis
+      - ./Airsotf.Altis:/configs/mpmissions/Airsotf.Altis
       - ./@mod_server:/configs/servermods/@mod_server
       - ./deploy/configs/mods.json:/configs/mods.json
       - ./deploy/configs/server.cfg:/configs/server.cfg
