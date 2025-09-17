@@ -6,29 +6,42 @@
         _player (PLAYER) - Player objet to flush data in database.
 */
 
+// CONSTANTS DEFINITION
+
+#define LOG_PREFIX "[DB]"
+#define PLAYER_MONEY_VAR "money"
+#define PLAYER_BLUE_OUTFITS_VAR "blue_outfits"
+#define PLAYER_RED_OUTFITS_VAR "red_outfits"
+#define PLAYER_KILLS_VAR "kills"
+#define PLAYER_DEADS_VAR "deads"
+#define PLAYER_WON_GAMES_VAR "won_games"
+#define PLAYER_LOST_GAMES_VAR "lost_games"
+#define PLAYER_VIP_LEVEL_VAR "vip_level"
+#define PLAYER_RIGHTS_VAR "rights"
+
 params ["_player"];
 
 // Safety check
 if (isNull _player) exitWith { 
-    diag_log "DB flush aborted: null player."; 
+    diag_log format ["%1 ERROR: DB flush aborted: null player.", LOG_PREFIX]; 
 };
 
 // Player identifiers
 private _playerUID = getPlayerUID _player;
 private _playerName = name _player;
 
-diag_log format ["DB flush player '%1' (UID: '%2').", _playerName, _playerUID];
+diag_log format ["%1 DB flush player '%2' (UID: '%3').", LOG_PREFIX, _playerName, _playerUID];
 
 // Prepare player data to flush
-private _money = _player getVariable "money";
-private _blueOutfits = _player getVariable "blue_outfits";
-private _redOutfits = _player getVariable "red_outfits";
-private _kills = _player getVariable "kills";
-private _deads = _player getVariable "deads";
-private _wonGames = _player getVariable "won_games";
-private _lostGames = _player getVariable "lost_games";
-private _vipLevel = _player getVariable "vip_level";
-private _rights = _player getVariable "rights";
+private _money = _player getVariable PLAYER_MONEY_VAR;
+private _blueOutfits = _player getVariable PLAYER_BLUE_OUTFITS_VAR;
+private _redOutfits = _player getVariable PLAYER_RED_OUTFITS_VAR;
+private _kills = _player getVariable PLAYER_KILLS_VAR;
+private _deads = _player getVariable PLAYER_DEADS_VAR;
+private _wonGames = _player getVariable PLAYER_WON_GAMES_VAR;
+private _lostGames = _player getVariable PLAYER_LOST_GAMES_VAR;
+private _vipLevel = _player getVariable PLAYER_VIP_LEVEL_VAR;
+private _rights = _player getVariable PLAYER_RIGHTS_VAR;
 
 // Encode arrays
 private _encodedBlueOutfits = [_blueOutfits] call DB_fnc_encodeArray;
@@ -47,4 +60,4 @@ private _query = format [
 [_query] call DB_fnc_writeQuery;
 
 // Log for flush confirmation
-diag_log format ["Player '%1' flushed (UID: '%2')", _playerName, _playerUID];
+diag_log format ["%1 Player '%2' flushed (UID: '%3')", LOG_PREFIX, _playerName, _playerUID];

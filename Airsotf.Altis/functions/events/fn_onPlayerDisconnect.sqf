@@ -4,37 +4,51 @@
         Add a mission event handler that:
         - 1. Logs player disconnects.
         - 2. Ends the mission if no players remain.
+        Refactored with constants and improved structure.
 */
 
-// run only on the server
-if (isServer) then {
-    addMissionEventHandler ["HandleDisconnect", {
-        params ["_unit", "_playerID", "_playerUID", "_playerName"];
+// CONSTANTS DEFINITION
+#define LOG_PREFIX "[DISCONNECT]"
+#define PLAYER_CHECK_DELAY 1
+#define GAME_STATUS_VAR "game_status"
+#define WAITING_STATUS "waiting"
 
-        diag_log format ["Player '%1' disconnected (UID: '%2').", _playerName, _playerUID];
+// Run only on the server
+if (!isServer) exitWith {};
 
-        deleteVehicle _unit;
+addMissionEventHandler ["HandleDisconnect", {
+    params ["_unit", "_playerID", "_playerUID", "_playerName"];
 
-        // --- Check if any players remain ---
-        // `allPlayers` lists only human players (AI excluded).
-        // After the engine removes the leaving player,
-        // we need a small delay to ensure the array updates.
-        [] spawn {
-            sleep 1;   // short delay so allPlayers updates
+    // Log player disconnect
+    diag_log format [
+        "%1 Player '%2' disconnected (UID: '%3', ID: %4)", 
+        LOG_PREFIX, _playerName, _playerUID, _playerID
+    ];
 
-            if ((count allPlayers) == 0) then {
-                diag_log "No players left, ending game.";
+    // Clean up disconnected player unit
+    deleteVehicle _unit;
 
-                // Change game status to 'waiting'
-                missionNamespace setVariable ["game_status", "waiting"];
-		        diag_log "Game-status updated to 'waiting'.";
-                
-                // End the mission on the server; everyone will see debriefing.
-                // TODO: add end game function
-            };
+    // Check remaining players after engine cleanup
+    [] spawn {
+        sleep PLAYER_CHECK_DELAY;
+        
+        private _remainingPlayers = count allPlayers;
+        
+        if (_remainingPlayers == 0) then {
+            diag_log format ["%1 No players remaining, initiating game end sequence", LOG_PREFIX];
+            
+            // Update game status
+            missionNamespace setVariable [GAME_STATUS_VAR, WAITING_STATUS];
+            diag_log format ["%1 Game status set to '%2'", LOG_PREFIX, WAITING_STATUS];
+            
+            // TODO: Implement end game function
+            // call fnc_endGame;
+            
+        } else {
+            diag_log format ["%1 %2 player(s) remaining in session", LOG_PREFIX, _remainingPlayers];
         };
+    };
 
-        // Return false to let the engine perform its normal cleanup
-        false
-    }];
-};   
+    // Return false for normal engine cleanup
+    false
+}];

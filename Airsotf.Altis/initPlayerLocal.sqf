@@ -1,6 +1,8 @@
+#define LOG_PREFIX "[InitPlayerLocal]"
+
 params ["_player", "_didJIP"];
 
-diag_log "Run InitPlayerLocal file";
+diag_log format ["%1 Executing...", LOG_PREFIX];
 
 // Define basics vars on player and client
 enableEnvironment [true, false];

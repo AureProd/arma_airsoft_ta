@@ -1,29 +1,47 @@
 /*
     Helper_fnc_loadConfig.sqf
     Description:
-        Loads a JSON file and returns it as a HashMap.
+        Loads a JSON file and returns it as a HashMap with enhanced error handling.
     Params:
-        _filePath (STRING) - relative path to the JSON file
+        _filePath (STRING) - Relative path to the JSON file
     Return:
-        (HASHMAP) - containing the parsed JSON, or an empty HashMap on failure
+        (HASHMAP) - Parsed JSON configuration, or empty HashMap on failure
 */
 
-params ["_filePath"];  // Get the file path passed to the function
+// CONSTANTS DEFINITION
+#define LOG_PREFIX "[CONFIG_LOADER]"
 
-// Load the file content as a string
-private _jsonText = loadFile _filePath;
+params ["_filePath"];
 
-// Check if the file exists and is not empty
-if (isNil "_jsonText" || {_jsonText isEqualTo ""}) then {
-    diag_log format ["[loadConfig] Failed to load JSON file %1, using empty config.", _filePath];
-    _jsonText = "{}";  // fallback to empty JSON object
+// Input validation
+if (isNil "_filePath" || _filePath isEqualTo "") exitWith {
+    diag_log format ["%1 ERROR: Invalid file path provided: %2", LOG_PREFIX, _filePath];
+    createHashMap
 };
 
-// Parse the JSON string into a HashMap
-private _config = fromJSON _jsonText;
+// Load file content
+private _jsonText = loadFile _filePath;
+private _config = createHashMap;
 
-// Ensure the function always returns a HashMap
-if (isNil "_config") exitWith { createHashMap };
+// Validate file content
+if (isNil "_jsonText" || _jsonText isEqualTo "") then {
+    diag_log format ["%1 ERROR: File not found or empty (%2), using default empty config", LOG_PREFIX, _filePath];
+    _jsonText = {};
+};
 
-// Return the parsed configuration
+// Parse JSON with error handling
+try {
+    _config = fromJSON _jsonText;
+    
+    // Validate parsing result
+    if (isNil "_config") then {
+        diag_log format ["%1 ERROR: JSON parsing failed for file: %2", LOG_PREFIX, _filePath];
+        _config = createHashMap;
+    };
+} catch {
+    diag_log format ["%1 ERROR: JSON parsing error for file %2 - %3", LOG_PREFIX, _filePath, _exception];
+    _config = createHashMap;
+};
+
+// Return validated configuration
 _config

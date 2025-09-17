@@ -4,18 +4,21 @@
         Initialize and open connection to MySQL database. 
 */
 
-_result = "extDB3" callExtension format ["9:ADD_DATABASE:%1","Database"];
+// CONSTANTS DEFINITION
+#define LOG_PREFIX "[DB]"
+
+_result = "extDB3" callExtension format ["9:ADD_DATABASE:%1", "Database"];
 if (!(_result isEqualTo "[1]")) then {
-    diag_log format ["Unexpected error with EXTDB loading: %1",_result];
+    diag_log format ["%1 ERROR: Unexpected error with EXTDB loading: %2", LOG_PREFIX,_result];
 } 
 else {
-    diag_log "Database client successfully initialized.";
+    diag_log format ["%1 Database client initialized.", LOG_PREFIX];
 };
 
-_result = "extDB3"callExtension format ["9:ADD_DATABASE_PROTOCOL:%2:SQL:%1:TEXT2",444,"Database"];
+_result = "extDB3"callExtension format ["9:ADD_DATABASE_PROTOCOL:%2:SQL:%1:TEXT2", 444, "Database"];
 if (!(_result isEqualTo "[1]")) then {
-    diag_log format ["Unexpected error with EXTDB loading: %1",_result];
+    diag_log format ["%1 ERROR: Unexpected error with EXTDB loading: %2", LOG_PREFIX, _result];
 } 
 else {
-    diag_log "Database client successfully connected.";
+    diag_log format ["%1 Database client connected.", LOG_PREFIX];
 };

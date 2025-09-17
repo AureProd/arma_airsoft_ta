@@ -4,18 +4,21 @@
         Reverses DB_fnc_escapeArray
         Converts a stringified, back-tick-escaped array back into a real SQF array.
     Params:
-        _escaped (STRING) – Escaped array string (e.g. "[`John`]")
+        _encoded (STRING) – Escaped array string (e.g. "[`John`]")
     Returns:
         ARRAY – The restored SQF array.
 */
 
-params ["_escaped"];
+// CONSTANTS DEFINITION
+#define LOG_PREFIX "[DB_ARRAY_DECODER]"
+
+params ["_encoded"];
 
 // Empty input → empty array
-if (_escaped isEqualTo "") exitWith { [] };
+if (_encoded isEqualTo "") exitWith { [] };
 
 // Convert to char array
-private _chars = toArray _escaped;
+private _chars = toArray _encoded;
 
 // Replace back-ticks (ASCII 96) with double quotes (ASCII 34)
 {
@@ -29,7 +32,7 @@ private _result;
 try {
     _result = call compile toString _chars;
 } catch {
-    diag_log format ["DB_fnc_unescapeArray: compile failed for '%1'", _escaped];
+    diag_log format ["%1 ERROR: Failed to decode encoded array '%2'.", LOG_PREFIX, _encoded];
     _result = [];
 };
 

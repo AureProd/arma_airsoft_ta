@@ -22,6 +22,25 @@ class CfgFunctions
             class loadConfigs {
                 preInit = 1;
             };
+            class createBriefing {
+                preInit = 1;
+            };
+            class loadEnv {
+                preInit = 1;
+            };
+        };
+    };
+
+    class Schedulers
+    {
+        tag = "Cron";
+
+        class Functions
+        {
+            file = "functions\schedulers"; 
+            class cleanupBodies {
+                preInit = 1;
+            };
         };
     };
 
@@ -38,11 +57,27 @@ class CfgFunctions
         };
     };
 
+    class Keybinds
+    {
+        tag = "Keys";
+
+        class Handlers
+        {
+            file = "functions\keybinds"; 
+            class earplugs {
+                postInit = 1;
+            };      
+            class jump {
+                postInit = 1;
+            };       
+        };
+    };
+
     class Game
     {
         tag = "Game";
 
-        class Handlers
+        class Functions
         {
             file = "functions\game"; 
             class serverStartGame {};     
@@ -55,7 +90,7 @@ class CfgFunctions
     {
         tag = "Vote";
 
-        class Handlers
+        class Functions
         {
             file = "functions\vote"; 
             class serverStartVote {};     
