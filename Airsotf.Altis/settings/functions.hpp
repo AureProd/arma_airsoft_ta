@@ -25,9 +25,6 @@ class CfgFunctions
             class createBriefing {
                 preInit = 1;
             };
-            class loadEnv {
-                preInit = 1;
-            };
         };
     };
 
