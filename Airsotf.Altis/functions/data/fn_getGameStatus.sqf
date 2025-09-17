@@ -11,6 +11,8 @@
 #define GAME_STATUS_VAR "game_status"
 #define WAITING_GAME_STATUS "waiting"
 
+if (!isServer) exitWith {};
+
 private _gameStatus = missionNamespace getVariable [GAME_STATUS_VAR, WAITING_GAME_STATUS];
 
 if !(_gameStatus in [WAITING_GAME_STATUS, IN_VOTE_GAME_STATUS, IN_GAME_GAME_STATUS]) exitWith {

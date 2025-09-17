@@ -10,6 +10,8 @@ enableEnvironment [true, false];
 setShadowDistance 500;
 setViewDistance 500;
 setObjectViewDistance 500;
+player enableStamina false;
+player setCustomAimCoef 0;
 player allowDamage false;
 player enableFatigue false;
 player enableStamina false;

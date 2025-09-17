@@ -13,4 +13,4 @@ diag_log format ["%1 Quit vote.", LOG_PREFIX];
 
 player setVariable [PLAYER_IN_VOTE_VAR, false, true];
 
-call Vote_fnc_clientCloseVoteInterface;
+call IHM_fnc_closeVoteIHM;

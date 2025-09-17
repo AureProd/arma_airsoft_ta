@@ -25,7 +25,7 @@ author = "Mysterfreez / AureProd";
 dev = "Mysterfreez / AureProd";
 OnLoadMission = "<t color='#1d24e0'>Un mode de tactique airsoft<br /><t color='#a62802'>Du pvp et du fun !<br /><t color='#1d24e0'>Développement: <t color='#a62802'>3.0<br /><t color='#1d24e0'>Créé par: <t color='#a62802'>Mysterfreez / AureProd";
 overviewText = "";
-loadScreen = "images\core\load_screen.jpg";
+loadScreen = "pictures\core\load_screen.jpg";
 onLoadIntro = "";
 respawnOnStart = -1;
 

@@ -13,7 +13,4 @@ diag_log format ["%1 Join vote.", LOG_PREFIX];
 
 player setVariable [PLAYER_IN_VOTE_VAR, true, true];
 
-call Vote_fnc_clientOpenVoteInterface;
-
-// TODO: To vote
-// ["uss_liberty"] call Vote_fnc_clientVoteForMap;
+call IHM_fnc_openVoteIHM;

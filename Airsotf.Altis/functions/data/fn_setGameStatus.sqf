@@ -15,6 +15,8 @@
 
 params ["_gameStatus"];
 
+if (!isServer) exitWith {};
+
 // Input validation
 if !(_gameStatus in [WAITING_GAME_STATUS, IN_VOTE_GAME_STATUS, IN_GAME_GAME_STATUS]) exitWith {
     diag_log format [

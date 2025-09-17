@@ -35,6 +35,6 @@ diag_log format ["%1 Start game on map '%2' with game-mode '%3'.", LOG_PREFIX, _
         [] remoteExecCall ["Vote_fnc_clientQuitVote", _x];
 
         diag_log format ["%1 Player '%2' join game.", LOG_PREFIX, (name _x)];
-        [gameMap, gameMode] remoteExecCall ["Game_fnc_clientJoinGame", _x];
+        [gameMap, gameMode, true] remoteExecCall ["Game_fnc_clientJoinGame", _x];
     };
 } forEach allPlayers;

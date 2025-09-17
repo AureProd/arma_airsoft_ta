@@ -96,9 +96,7 @@ class CfgFunctions
             class serverPlayerVoteForMap {};     
             class clientJoinVote {};         
             class clientQuitVote {};      
-            class clientVoteForMap {};       
-            class clientOpenVoteInterface {};        
-            class clientCloseVoteInterface {};     
+            class clientVoteForMap {};          
         };
     };
 
@@ -113,6 +111,23 @@ class CfgFunctions
             class getGameModes {};  
             class getGameStatus {};  
             class setGameStatus {};           
+        };
+    };
+
+    class Interfaces
+    {
+        tag = "IHM";
+
+        class Vote
+        {
+            file = "functions\interfaces\vote"; 
+            class openVoteIHM {};  
+            class closeVoteIHM {};    
+        };
+
+        class Loading
+        {
+            file = "functions\interfaces\loading"; 
         };
     };
 };
