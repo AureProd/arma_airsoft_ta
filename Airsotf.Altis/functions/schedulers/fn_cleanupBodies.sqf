@@ -5,11 +5,11 @@
         Runs automatically via postInit as a cron task.
 */
 
-// Run only on server (so deletion is authoritative)
-if (!isServer) exitWith {};
-
 // CONSTANTS DEFINITION
 #define LOOP_INTERVAL 0.2 // seconds to wait between iterations
+
+// Run only on server (so deletion is authoritative)
+if (!isServer) exitWith {};
 
 // Spawn a loop to delete all dead bodies periodically
 [] spawn {

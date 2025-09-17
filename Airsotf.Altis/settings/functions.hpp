@@ -94,8 +94,11 @@ class CfgFunctions
             class serverStopVote {};     
             class serverFinishVote {};
             class serverPlayerVoteForMap {};     
-            class clientJoinVote {};      
-            class clientVoteForMap {};            
+            class clientJoinVote {};         
+            class clientQuitVote {};      
+            class clientVoteForMap {};       
+            class clientOpenVoteInterface {};        
+            class clientCloseVoteInterface {};     
         };
     };
 

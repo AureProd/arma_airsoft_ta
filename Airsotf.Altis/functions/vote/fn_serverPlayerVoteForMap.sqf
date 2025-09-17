@@ -3,16 +3,17 @@
     Description:
         Save map vote of player on server side.
     Params:
+        _player (PLAYER) - Player who voted.
         _votedMap (STRING) - Voted map, map selected by player.
 */
 
 #define LOG_PREFIX "[Vote]"
 
-params ["_votedMap"]; // TODO: change params to add player => 'params ["_player", "_votedMap"];'
+params ["_player", "_votedMap"];
 
 if (!isServer) exitWith {};
 
-diag_log format ["%1 Player '%2' vote for map '%3'.", LOG_PREFIX, "test_player", _votedMap]; // TODO: change player name by 'name player'
+diag_log format ["%1 Player '%2' vote for map '%3'.", LOG_PREFIX, name _player, _votedMap];
 
 private _gameMaps = call Data_fnc_getGameMaps;
 

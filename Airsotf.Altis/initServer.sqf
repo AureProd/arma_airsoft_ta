@@ -14,12 +14,4 @@ call DB_fnc_init; // Initialize DB connection (execute only on server)
 // Set default game-status
 ["waiting"] call Data_fnc_setGameStatus;
 
-private _gameMaps = call Data_fnc_getGameMaps;
-
-// TODO: just for tests
-diag_log format ["%1 Start test vote system and joining game.", LOG_PREFIX];
-
-call Vote_fnc_serverStartVote;
-
-diag_log format ["%1 Player '%2' join vote.", LOG_PREFIX, "test_player"];
-[keys _gameMaps] remoteExecCall ["Vote_fnc_clientJoinVote", 2];
+diag_log format ["%1 Server ready.", LOG_PREFIX];

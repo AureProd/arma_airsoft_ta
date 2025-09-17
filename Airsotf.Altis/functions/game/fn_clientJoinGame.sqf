@@ -11,6 +11,6 @@
 
 params ["_gameMap", "_gameMode"];
 
-// TODO: if (!hasInterface) exitWith {};  // Only on client side
+if (!hasInterface) exitWith {};  // Only on client side
 
 diag_log format ["%1 Join game.", LOG_PREFIX];

@@ -10,8 +10,8 @@
 
 params ["_votedMap"];
 
-// TODO: if (!hasInterface) exitWith {};  // Only on client side
+if (!hasInterface) exitWith {};  // Only on client side
 
 diag_log format ["%1 Vote for map '%2'.", LOG_PREFIX, _votedMap];
 
-[_votedMap] remoteExecCall ["Vote_fnc_serverPlayerVoteForMap", 2]
+[player, _votedMap] remoteExecCall ["Vote_fnc_serverPlayerVoteForMap", 2]

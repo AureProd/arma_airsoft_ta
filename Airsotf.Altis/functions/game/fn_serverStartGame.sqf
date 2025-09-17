@@ -7,6 +7,7 @@
 */
 
 #define LOG_PREFIX "[Game]"
+#define PLAYER_IN_VOTE_VAR "in_vote"
 
 params ["_selectedMap"];
 
@@ -29,10 +30,11 @@ gameMode = _gameModes get _mapGameMode;
 diag_log format ["%1 Start game on map '%2' with game-mode '%3'.", LOG_PREFIX, _selectedMap, _mapGameMode];
 
 {
-    diag_log format ["%1 Player '%2' join game.", LOG_PREFIX, (name _x)];
-    [gameMap, gameMode] remoteExecCall ["Game_fnc_clientJoinGame", _x];
-} forEach allPlayers;
+    if (_x getVariable [PLAYER_IN_VOTE_VAR, false]) then {
+        diag_log format ["%1 Player '%2' quit vote.", LOG_PREFIX, (name _x)];
+        [] remoteExecCall ["Vote_fnc_clientQuitVote", _x];
 
-// TODO: for tests
-diag_log format ["%1 Player '%2' join game.", LOG_PREFIX, "test_player"];
-[gameMap, gameMode] remoteExecCall ["Game_fnc_clientJoinGame", 2];
+        diag_log format ["%1 Player '%2' join game.", LOG_PREFIX, (name _x)];
+        [gameMap, gameMode] remoteExecCall ["Game_fnc_clientJoinGame", _x];
+    };
+} forEach allPlayers;

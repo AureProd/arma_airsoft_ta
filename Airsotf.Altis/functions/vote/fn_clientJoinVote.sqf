@@ -5,14 +5,15 @@
 */
 
 #define LOG_PREFIX "[Vote]"
+#define PLAYER_IN_VOTE_VAR "in_vote"
 
-// TODO: if (!hasInterface) exitWith {};  // Only on client side
+if (!hasInterface) exitWith {};  // Only on client side
 
 diag_log format ["%1 Join vote.", LOG_PREFIX];
 
-// TODO: add vote for test
-[] spawn {
-    sleep 3;
+player setVariable [PLAYER_IN_VOTE_VAR, true, true];
 
-    ["uss_liberty"] call Vote_fnc_clientVoteForMap;
-};
+call Vote_fnc_clientOpenVoteInterface;
+
+// TODO: To vote
+// ["uss_liberty"] call Vote_fnc_clientVoteForMap;
