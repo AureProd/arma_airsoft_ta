@@ -11,6 +11,8 @@
 // CONSTANTS DEFINITION
 #define LOG_PREFIX "[CONFIG_LOADER]"
 
+if (!isServer) exitWith {};
+
 params ["_filePath"];
 
 // Input validation

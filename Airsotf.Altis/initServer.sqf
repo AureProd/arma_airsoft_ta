@@ -11,6 +11,14 @@ call DB_fnc_init; // Initialize DB connection (execute only on server)
 
 [[1988, 5, 16, 8, 0]] remoteExec ["setDate"];
 
-// Set default game-status, available game-status: "waiting", "in_vote", "in_game"
-missionNamespace setVariable ["game_status", "waiting", true];
-diag_log format ["%1 Game-status updated to 'waiting'.", LOG_PREFIX];
+// Set default game-status
+["waiting"] call Data_fnc_setGameStatus;
+
+private _gameMaps = call Data_fnc_getGameMaps;
+
+// TODO: just for tests
+diag_log format ["%1 Start test vote system and joining game.", LOG_PREFIX];
+
+call Vote_fnc_serverStartVote;
+
+[keys _gameMaps] remoteExecCall ["Vote_fnc_clientJoinVote", 2];

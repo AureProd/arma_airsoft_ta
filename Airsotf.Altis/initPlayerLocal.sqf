@@ -5,6 +5,7 @@ params ["_player", "_didJIP"];
 diag_log format ["%1 Executing...", LOG_PREFIX];
 
 // Define basics vars on player and client
+enableSaving [false, false];
 enableEnvironment [true, false];
 setShadowDistance 500;
 setViewDistance 500;

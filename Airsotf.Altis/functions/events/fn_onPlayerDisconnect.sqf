@@ -10,8 +10,6 @@
 // CONSTANTS DEFINITION
 #define LOG_PREFIX "[DISCONNECT]"
 #define PLAYER_CHECK_DELAY 1
-#define GAME_STATUS_VAR "game_status"
-#define WAITING_STATUS "waiting"
 
 // Run only on the server
 if (!isServer) exitWith {};
@@ -36,14 +34,20 @@ addMissionEventHandler ["HandleDisconnect", {
         
         if (_remainingPlayers == 0) then {
             diag_log format ["%1 No players remaining, initiating game end sequence", LOG_PREFIX];
-            
-            // Update game status
-            missionNamespace setVariable [GAME_STATUS_VAR, WAITING_STATUS];
-            diag_log format ["%1 Game status set to '%2'", LOG_PREFIX, WAITING_STATUS];
-            
-            // TODO: Implement end game function
-            // call fnc_endGame;
-            
+
+            private _gameStatus = call Data_fnc_getGameStatus;
+
+            // If no connected players remaining
+            switch (_gameStatus) do {
+                case IN_VOTE_GAME_STATUS: { 
+                    // Stop vote system
+                    call Vote_fnc_serverStopVote;
+                };
+                case IN_GAME_GAME_STATUS: { 
+                    // Stop game
+                    call Game_fnc_serverStopGame;
+                };
+            };            
         } else {
             diag_log format ["%1 %2 player(s) remaining in session", LOG_PREFIX, _remainingPlayers];
         };

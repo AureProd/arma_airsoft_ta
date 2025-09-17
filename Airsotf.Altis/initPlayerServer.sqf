@@ -1,4 +1,6 @@
 #define LOG_PREFIX "[InitPlayerServer]"
+#define PLAYER_IS_INIT_VAR "is_initialized"
+#define PLAYER_WELCOME_MESSAGE "Welcome to the server !"
 
 params ["_player", "_didJIP"];
 
@@ -10,38 +12,39 @@ private _playerUID  = getPlayerUID _player;
 // Initialize new connected player
 diag_log format ["%1 Player '%2' connected (UID: '%3').", LOG_PREFIX, _playerName, _playerUID];
 
-["Welcome to the server !"] remoteExec ["hint", _player];
+[PLAYER_WELCOME_MESSAGE] remoteExec ["hint", _player];
 
 // Fetch player data from database
 [_player] call DB_fnc_fetchPlayerData;
 
 // Wait player is fully initialized
-waitUntil {_player getVariable ["is_initialized", false]};
+waitUntil {_player getVariable [PLAYER_IS_INIT_VAR, false]};
 
 diag_log format ["%1 Player '%2' initialized (UID: '%3').", LOG_PREFIX, _playerName, _playerUID];
 
-// Read game-status
-private _gameStatus = missionNamespace getVariable ["game_status", "waiting"];
+private _gameStatus = call Data_fnc_getGameStatus;
+private _gameMaps = call Data_fnc_getGameMaps;
 
 // Execute the code that corresponds to the game-status
 switch (_gameStatus) do {
-	case "waiting": { 
+	case WAITING_GAME_STATUS: { 
 		// Game in wait of players to start
 		// After this first player is connected, change game-status to 'in_vote' and start vote for select map 
-		missionNamespace setVariable ["game_status", "in_vote", true];
-		diag_log format ["%1 Game-status updated to 'in_vote'.", LOG_PREFIX];
-
 		call Vote_fnc_serverStartVote;
 
-		[] remoteExecCall ["Vote_fnc_clientJoinVote", _player];
+		[keys _gameMaps] remoteExecCall ["Vote_fnc_clientJoinVote", _player];
 	};
-	case "in_vote": { 
-		[] remoteExecCall ["Vote_fnc_clientJoinVote", _player];
+	case IN_VOTE_GAME_STATUS: { 
+		[keys _gameMaps] remoteExecCall ["Vote_fnc_clientJoinVote", _player];
 	};
-	case "in_game": { 
-		
-	};
-	default { 
-		diag_log format ["%1 ERROR: Unexpected game-status value: '%2'.", LOG_PREFIX, _gameStatus];
+	case IN_GAME_GAME_STATUS: { 
+		if (isNil "gameMap" || (count (keys gameMap)) == 0) exitWith {
+			diag_log format ["%1 ERROR: Variable 'gameMap' is empty or not defined.", LOG_PREFIX];
+		};
+		if (isNil "gameMode" || (count (keys _voteHashMap)) == 0) exitWith {
+			diag_log format ["%1 ERROR: Variable 'gameMode' is empty or not defined.", LOG_PREFIX];
+		};
+
+		[gameMap, gameMode] remoteExecCall ["Game_fnc_clientJoinGame", _player];
 	};
 };

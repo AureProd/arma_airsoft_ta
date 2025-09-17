@@ -92,7 +92,23 @@ class CfgFunctions
             file = "functions\vote"; 
             class serverStartVote {};     
             class serverStopVote {};     
-            class clientJoinVote {};            
+            class serverFinishVote {};     
+            class clientJoinVote {};      
+            class clientVoteForMap {};            
+        };
+    };
+
+    class Data
+    {
+        tag = "Data";
+
+        class Functions
+        {
+            file = "functions\data"; 
+            class getGameMaps {};  
+            class getGameModes {};  
+            class getGameStatus {};  
+            class setGameStatus {};           
         };
     };
 };
