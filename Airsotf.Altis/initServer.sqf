@@ -21,4 +21,5 @@ diag_log format ["%1 Start test vote system and joining game.", LOG_PREFIX];
 
 call Vote_fnc_serverStartVote;
 
+diag_log format ["%1 Player '%2' join vote.", LOG_PREFIX, "test_player"];
 [keys _gameMaps] remoteExecCall ["Vote_fnc_clientJoinVote", 2];

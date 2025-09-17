@@ -13,4 +13,4 @@ params ["_gameMap", "_gameMode"];
 
 // TODO: if (!hasInterface) exitWith {};  // Only on client side
 
-diag_log format ["%1 Player '%2' join game.", LOG_PREFIX, "test_player"]; // TODO: change player name by 'name player'
+diag_log format ["%1 Join game.", LOG_PREFIX];

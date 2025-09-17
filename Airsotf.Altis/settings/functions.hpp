@@ -92,7 +92,8 @@ class CfgFunctions
             file = "functions\vote"; 
             class serverStartVote {};     
             class serverStopVote {};     
-            class serverFinishVote {};     
+            class serverFinishVote {};
+            class serverPlayerVoteForMap {};     
             class clientJoinVote {};      
             class clientVoteForMap {};            
         };

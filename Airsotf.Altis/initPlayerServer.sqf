@@ -32,9 +32,11 @@ switch (_gameStatus) do {
 		// After this first player is connected, change game-status to 'in_vote' and start vote for select map 
 		call Vote_fnc_serverStartVote;
 
+		diag_log format ["%1 Player '%2' join vote.", LOG_PREFIX, _playerName];
 		[keys _gameMaps] remoteExecCall ["Vote_fnc_clientJoinVote", _player];
 	};
 	case IN_VOTE_GAME_STATUS: { 
+		diag_log format ["%1 Player '%2' join vote.", LOG_PREFIX, _playerName];
 		[keys _gameMaps] remoteExecCall ["Vote_fnc_clientJoinVote", _player];
 	};
 	case IN_GAME_GAME_STATUS: { 
@@ -45,6 +47,7 @@ switch (_gameStatus) do {
 			diag_log format ["%1 ERROR: Variable 'gameMode' is empty or not defined.", LOG_PREFIX];
 		};
 
+		diag_log format ["%1 Player '%2' join game.", LOG_PREFIX, _playerName];
 		[gameMap, gameMode] remoteExecCall ["Game_fnc_clientJoinGame", _player];
 	};
 };
