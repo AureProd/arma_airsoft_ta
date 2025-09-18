@@ -5,7 +5,7 @@
 */
 
 #define LOG_PREFIX "[Vote]"
-#define VOTE_DURATION 10 // 40  // Vote time duration in seconds
+#define VOTE_DURATION 40  // Vote time duration in seconds
 
 if (!isServer) exitWith {};
 
@@ -23,7 +23,12 @@ gameVoteHashMap = createHashMap;
 
 // Wait end of vote
 [] spawn {
-    sleep VOTE_DURATION;
+    private _iterationsCount = 0;
 
+    while {_iterationsCount < VOTE_DURATION && (call Data_fnc_getGameStatus) == "in_vote"} do {
+        sleep 1;
+        _iterationsCount = _iterationsCount + 1;
+    };
+    
     call Vote_fnc_serverFinishVote;
 };

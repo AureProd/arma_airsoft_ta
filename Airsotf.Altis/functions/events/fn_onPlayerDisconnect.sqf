@@ -9,6 +9,8 @@
 
 // CONSTANTS DEFINITION
 #define LOG_PREFIX "[DISCONNECT]"
+#define IN_VOTE_GAME_STATUS "in_vote"
+#define IN_GAME_GAME_STATUS "in_game"
 #define PLAYER_CHECK_DELAY 1
 
 // Run only on the server

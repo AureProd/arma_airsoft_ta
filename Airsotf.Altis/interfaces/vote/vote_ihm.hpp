@@ -3,6 +3,7 @@ class VoteIHM
     idd = 5001;
     movingEnable = 0;
     enableSimulation = 1;
+	duration=999999999;
     
     class controls 
 	{

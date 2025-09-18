@@ -1,4 +1,7 @@
 #define LOG_PREFIX "[InitPlayerServer]"
+#define WAITING_GAME_STATUS "waiting"
+#define IN_VOTE_GAME_STATUS "in_vote"
+#define IN_GAME_GAME_STATUS "in_game"
 #define PLAYER_IS_INIT_VAR "is_initialized"
 #define PLAYER_WELCOME_MESSAGE "Welcome to the server !"
 

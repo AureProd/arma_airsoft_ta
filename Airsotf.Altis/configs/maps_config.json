@@ -13,32 +13,32 @@
             "A": {
                 "id": "cpA_flag",
                 "images": [
-                    "pictures/flags/church/blue_church_flag.paa",
-                    "pictures/flags/church/red_church_flag.paa",
-                    "pictures/flags/church/white_church_flag.paa"
+                    "pictures\\flags\\church\\blue_church_flag.paa",
+                    "pictures\\flags\\church\\red_church_flag.paa",
+                    "pictures\\flags\\church\\white_church_flag.paa"
                 ]
             },
             "B": {
                 "id": "cpB_flag",
                 "images": [
-                    "pictures/flags/windmill/blue_windmill_flag.paa",
-                    "pictures/flags/windmill/red_windmill_flag.paa",
-                    "pictures/flags/windmill/white_windmill_flag.paa"
+                    "pictures\\flags\\windmill\\blue_windmill_flag.paa",
+                    "pictures\\flags\\windmill\\red_windmill_flag.paa",
+                    "pictures\\flags\\windmill\\white_windmill_flag.paa"
                 ]
             },
             "C": {
                 "id": "cpC_flag",
                 "images": [
-                    "pictures/flags/truck/blue_truck_flag.paa",
-                    "pictures/flags/truck/red_truck_flag.paa",
-                    "pictures/flags/truck/white_truck_flag.paa"
+                    "pictures\\flags\\truck\\blue_truck_flag.paa",
+                    "pictures\\flags\\truck\\red_truck_flag.paa",
+                    "pictures\\flags\\truck\\white_truck_flag.paa"
                 ]
             }
         },
-        "vote_map_picture": "pictures/maps/rat_superios.jpg",
+        "vote_map_picture": "pictures\\maps\\rat_superios.jpg",
         "extra_images": {
-            "rat": "pictures/others/rat_super.paa",
-            "easteregg": "pictures/others/black_list_easteregg.paa"
+            "rat": "pictures\\others\\rat_super.paa",
+            "easteregg": "pictures\\others\\black_list_easteregg.paa"
         },
         "shops": {"blue": "shopBlu", "red": "shopRed"},
         "toilets": ["toilet1_map", "toilet2_map", "toilet3_map", "toilet4_map"],
@@ -58,19 +58,19 @@
         },
         "flags": {
             "A": {"id": "cpA_flag_1", "images": [
-                "pictures/flags/basics/usa_flag.paa", 
-                "pictures/flags/basics/german_flag.paa", 
-                "pictures/flags/basics/white_flag.paa"
+                "pictures\\flags\\basics\\usa_flag.paa", 
+                "pictures\\flags\\basics\\german_flag.paa", 
+                "pictures\\flags\\basics\\white_flag.paa"
             ]},
             "B": {"id": "cpB_flag_1", "images": [
-                "pictures/flags/basics/usa_flag.paa", 
-                "pictures/flags/basics/german_flag.paa", 
-                "pictures/flags/basics/white_flag.paa"
+                "pictures\\flags\\basics\\usa_flag.paa", 
+                "pictures\\flags\\basics\\german_flag.paa", 
+                "pictures\\flags\\basics\\white_flag.paa"
             ]},
             "C": {"id": "cpC_flag_1", "images": [
-                "pictures/flags/basics/usa_flag.paa", 
-                "pictures/flags/basics/german_flag.paa", 
-                "pictures/flags/basics/white_flag.paa"
+                "pictures\\flags\\basics\\usa_flag.paa", 
+                "pictures\\flags\\basics\\german_flag.paa", 
+                "pictures\\flags\\basics\\white_flag.paa"
             ]}
         },
         "vote_map_picture": "",
@@ -92,9 +92,9 @@
             "red": [16059.37, 18135.027, 0]
         },
         "flags": {
-            "A": {"id": "cpA_flag_2", "images": ["pictures/flags/basics/usa_flag.paa","pictures/flags/basics/german_flag.paa","pictures/flags/basics/white_flag.paa"]},
-            "B": {"id": "cpB_flag_2", "images": ["pictures/flags/basics/usa_flag.paa","pictures/flags/basics/german_flag.paa","pictures/flags/basics/white_flag.paa"]},
-            "C": {"id": "cpC_flag_2", "images": ["pictures/flags/basics/usa_flag.paa","pictures/flags/basics/german_flag.paa","pictures/flags/basics/white_flag.paa"]}
+            "A": {"id": "cpA_flag_2", "images": ["pictures\\flags\\basics\\usa_flag.paa","pictures\\flags\\basics\\german_flag.paa","pictures\\flags\\basics\\white_flag.paa"]},
+            "B": {"id": "cpB_flag_2", "images": ["pictures\\flags\\basics\\usa_flag.paa","pictures\\flags\\basics\\german_flag.paa","pictures\\flags\\basics\\white_flag.paa"]},
+            "C": {"id": "cpC_flag_2", "images": ["pictures\\flags\\basics\\usa_flag.paa","pictures\\flags\\basics\\german_flag.paa","pictures\\flags\\basics\\white_flag.paa"]}
         },
         "vote_map_picture": "",
         "extra_images": {},
@@ -116,25 +116,25 @@
         },
         "flags": {
             "A": {"id": "cpA_flag_3", "images": [
-                "pictures/flags/basics/usa_flag.paa",
-                "pictures/flags/basics/german_flag.paa",
-                "pictures/flags/basics/white_flag.paa"
+                "pictures\\flags\\basics\\usa_flag.paa",
+                "pictures\\flags\\basics\\german_flag.paa",
+                "pictures\\flags\\basics\\white_flag.paa"
             ]},
             "B": {"id": "cpB_flag_2", "images": [
-                "pictures/flags/basics/usa_flag.paa",
-                "pictures/flags/basics/german_flag.paa",
-                "pictures/flags/basics/white_flag.paa"
+                "pictures\\flags\\basics\\usa_flag.paa",
+                "pictures\\flags\\basics\\german_flag.paa",
+                "pictures\\flags\\basics\\white_flag.paa"
             ]},
             "C": {"id": "cpC_flag_2", "images": [
-                "pictures/flags/basics/usa_flag.paa",
-                "pictures/flags/basics/german_flag.paa",
-                "pictures/flags/basics/white_flag.paa"
+                "pictures\\flags\\basics\\usa_flag.paa",
+                "pictures\\flags\\basics\\german_flag.paa",
+                "pictures\\flags\\basics\\white_flag.paa"
             ]}
         },
         "vote_map_picture": "",
         "extra_images": {
-            "TAlogo1": "pictures/others/tactique_airsoft_logo.paa",
-            "TAlogo2": "pictures/others/tactique_airsoft_logo.paa"
+            "TAlogo1": "pictures\\others\\tactique_airsoft_logo.paa",
+            "TAlogo2": "pictures\\others\\tactique_airsoft_logo.paa"
         },
         "shops": {"blue": "shopBlu_3", "red": "shopRed_3"},
         "toilets": ["toilet1_map_3", "toilet2_map_3", "toilet3_map_3", "toilet4_map_3"],
@@ -154,22 +154,22 @@
         },
         "flags": {
             "A": {"id": "cpA_flag_4", "images": [
-                "pictures/flags/basics/usa_flag.paa",
-                "pictures/flags/basics/german_flag.paa",
-                "pictures/flags/basics/white_flag.paa"
+                "pictures\\flags\\basics\\usa_flag.paa",
+                "pictures\\flags\\basics\\german_flag.paa",
+                "pictures\\flags\\basics\\white_flag.paa"
             ]},
             "B": {"id": "cpB_flag_4", "images": [
-                "pictures/flags/basics/usa_flag.paa",
-                "pictures/flags/basics/german_flag.paa",
-                "pictures/flags/basics/white_flag.paa"
+                "pictures\\flags\\basics\\usa_flag.paa",
+                "pictures\\flags\\basics\\german_flag.paa",
+                "pictures\\flags\\basics\\white_flag.paa"
             ]},
             "C": {"id": "cpC_flag_4", "images": [
-                "pictures/flags/basics/usa_flag.paa",
-                "pictures/flags/basics/german_flag.paa",
-                "pictures/flags/basics/white_flag.paa"
+                "pictures\\flags\\basics\\usa_flag.paa",
+                "pictures\\flags\\basics\\german_flag.paa",
+                "pictures\\flags\\basics\\white_flag.paa"
             ]}
         },
-        "vote_map_picture": "pictures/maps/holiday_club.jpg",
+        "vote_map_picture": "pictures\\maps\\holiday_club.jpg",
         "extra_images": {},
         "shops": {"blue": "shopBlu_5", "red": "shopRed_5"},
         "toilets": ["toilet1_map_4", "toilet2_map_4", "toilet3_map_4", "toilet4_map_4"],
@@ -189,22 +189,22 @@
         },
         "flags": {
             "A": {"id": "cpA_flag_5", "images": [
-                "pictures/flags/basics/usa_flag.paa",
-                "pictures/flags/basics/german_flag.paa",
-                "pictures/flags/basics/white_flag.paa"
+                "pictures\\flags\\basics\\usa_flag.paa",
+                "pictures\\flags\\basics\\german_flag.paa",
+                "pictures\\flags\\basics\\white_flag.paa"
             ]},
             "B": {"id": "cpB_flag_5", "images": [
-                "pictures/flags/basics/usa_flag.paa",
-                "pictures/flags/basics/german_flag.paa",
-                "pictures/flags/basics/white_flag.paa"
+                "pictures\\flags\\basics\\usa_flag.paa",
+                "pictures\\flags\\basics\\german_flag.paa",
+                "pictures\\flags\\basics\\white_flag.paa"
             ]},
             "C": {"id": "cpC_flag_5", "images": [
-                "pictures/flags/basics/usa_flag.paa",
-                "pictures/flags/basics/german_flag.paa",
-                "pictures/flags/basics/white_flag.paa"
+                "pictures\\flags\\basics\\usa_flag.paa",
+                "pictures\\flags\\basics\\german_flag.paa",
+                "pictures\\flags\\basics\\white_flag.paa"
             ]}
         },
-        "vote_map_picture": "pictures/maps/uss_liberty.jpg",
+        "vote_map_picture": "pictures\\maps\\uss_liberty.jpg",
         "extra_images": {},
         "shops": {"blue": "shopBlu_7", "red": "shopRed_7"},
         "toilets": ["toilet1_map_5", "toilet2_map_5", "toilet3_map_5", "toilet4_map_5"],
@@ -222,7 +222,7 @@
             "blue": [7136.154, 16621.08, 1.042],
             "red": [7077.774, 16380.89, 1.087]
         },
-        "vote_map_picture": "pictures/maps/vip_escort.jpg",
+        "vote_map_picture": "pictures\\maps\\vip_escort.jpg",
         "extra_images": {},
         "shops": {"blue": "shopBlu_4", "red": "shopRed_4"},
         "toilets": [],
@@ -272,25 +272,25 @@
         },
         "flags": {
             "A": {"id": "cpA_flag_3", "images": [
-                "pictures/flags/basics/usa_flag.paa",
-                "pictures/flags/basics/german_flag.paa",
-                "pictures/flags/basics/white_flag.paa"
+                "pictures\\flags\\basics\\usa_flag.paa",
+                "pictures\\flags\\basics\\german_flag.paa",
+                "pictures\\flags\\basics\\white_flag.paa"
             ]},
             "B": {"id": "cpB_flag_3", "images": [
-                "pictures/flags/basics/usa_flag.paa",
-                "pictures/flags/basics/german_flag.paa",
-                "pictures/flags/basics/white_flag.paa"
+                "pictures\\flags\\basics\\usa_flag.paa",
+                "pictures\\flags\\basics\\german_flag.paa",
+                "pictures\\flags\\basics\\white_flag.paa"
             ]},
             "C": {"id": "cpC_flag_3", "images": [
-                "pictures/flags/basics/usa_flag.paa",
-                "pictures/flags/basics/german_flag.paa",
-                "pictures/flags/basics/white_flag.paa"
+                "pictures\\flags\\basics\\usa_flag.paa",
+                "pictures\\flags\\basics\\german_flag.paa",
+                "pictures\\flags\\basics\\white_flag.paa"
             ]}
         },
-        "vote_map_picture": "pictures/maps/black_box.jpg",
+        "vote_map_picture": "pictures\\maps\\black_box.jpg",
         "extra_images": {
-            "TAlogo1": "pictures/others/tactique_airsoft_logo.paa",
-            "TAlogo2": "pictures/others/tactique_airsoft_logo.paa"
+            "TAlogo1": "pictures\\others\\tactique_airsoft_logo.paa",
+            "TAlogo2": "pictures\\others\\tactique_airsoft_logo.paa"
         },
         "shops": {"blue": "shopBlu_3", "red": "shopRed_3"},
         "toilets": ["toilet1_map_3", "toilet2_map_3", "toilet3_map_3", "toilet4_map_3"],

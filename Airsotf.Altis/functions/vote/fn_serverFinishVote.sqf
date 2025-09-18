@@ -8,6 +8,10 @@
 
 if (!isServer) exitWith {};
 
+if ((call Data_fnc_getGameStatus) != "in_vote") exitWith {
+    diag_log format ["%1 WARNING: Game status no equal to 'in_vote', vote result avorted.", LOG_PREFIX];
+};
+
 // Check if HashMap is empty
 if (isNil "gameVoteHashMap" || (count (keys gameVoteHashMap)) == 0) exitWith {
     diag_log format ["%1 ERROR: Variable 'gameVoteHashMap' is empty or not defined.", LOG_PREFIX];

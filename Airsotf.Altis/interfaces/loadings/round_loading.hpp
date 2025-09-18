@@ -2,6 +2,7 @@ class RoundLoading
 {
 	idd = -1;	
 	onLoad = "uiNamespace setVariable ['round_loading',_this select 0]";
+	duration=999999999;
 
 	class controls
 	{

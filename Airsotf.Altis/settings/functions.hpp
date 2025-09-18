@@ -123,6 +123,7 @@ class CfgFunctions
             file = "functions\interfaces\vote"; 
             class openVoteIHM {};  
             class closeVoteIHM {};    
+            class changeVoteMapPicture {};    
         };
 
         class Loading

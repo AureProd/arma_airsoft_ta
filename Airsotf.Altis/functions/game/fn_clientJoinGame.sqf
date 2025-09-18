@@ -16,7 +16,9 @@ if (!hasInterface) exitWith {};  // Only on client side
 
 diag_log format ["%1 Join game.", LOG_PREFIX];
 
-[] spawn {
+[_gameMap, _gameMode, _printCountDown] spawn {
+    params ["_gameMap", "_gameMode", "_printCountDown"];
+
     if (_printCountDown) then {
         // Print start countdown before game starting
         // Disable player input

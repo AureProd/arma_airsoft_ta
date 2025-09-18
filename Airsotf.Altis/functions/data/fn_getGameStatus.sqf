@@ -10,6 +10,8 @@
 #define LOG_PREFIX "[GameStatus]"
 #define GAME_STATUS_VAR "game_status"
 #define WAITING_GAME_STATUS "waiting"
+#define IN_VOTE_GAME_STATUS "in_vote"
+#define IN_GAME_GAME_STATUS "in_game"
 
 if (!isServer) exitWith {};
 

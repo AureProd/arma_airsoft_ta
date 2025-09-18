@@ -42,9 +42,11 @@ playMusic "Vote";
 private _display = findDisplay VOTE_IHM_IDD;
 
 private _listBox = _display displayCtrl MAPS_LIST_IDD;
+private _voteButton = _display displayCtrl VOTE_BUTTON_IDD;
 lbClear _listBox;
 
 private _gameMaps = call Data_fnc_getGameMaps;
+private _gameMapsKeys = keys _gameMaps;
 
 {
     private _map = _gameMaps get _x;
@@ -52,56 +54,46 @@ private _gameMaps = call Data_fnc_getGameMaps;
 
     private _idx = _listBox lbAdd _mapName;
 
-    _listbox lbSetData [_idx, _map];
-} forEach (keys _gameMaps);
+    _listbox lbSetData [_idx, _x];
+} forEach _gameMapsKeys;
 
 _listBox lbSetCurSel 0;
 
+private _firstMapKey = _gameMapsKeys select 0;
+
+[_firstMapKey] call IHM_fnc_changeVoteMapPicture;
+
 _listBox ctrlAddEventHandler [
-    "onLBSelChanged",
+    "lbSelChanged",
     {
         params ["_control", "_lbCurSel"];
+
+        private _gameMaps = call Data_fnc_getGameMaps;
         
         private _key = lbCurSel _control;
-        private _map = _control lbData _key;
+        private _mapKey = _control lbData _key;
 
-        private _mapPicture = _map get "vote_map_picture";
-        private _mapPosition = _map get "position";
-
-        private _selectedMapPicture = uiNamespace getVariable "selected_map_picture";
-
-        if (_mapPicture == "") then {
-            _selectedMapPicture ctrlShow false;
-
-            // No map picture use cam
-            // Move camera to pos
-            voteMapPictureCam camPreparePos [(_mapPosition select 0) - CAM_X_DELTA,(_mapPosition select 1) - CAM_Y_DELTA, CAM_Z_DELTA];
-            voteMapPictureCam camPrepareTarget _mapPosition;
-            voteMapPictureCam camCommitPrepared 0;
-        } else {
-            // Print map picture
-            private _mapPictureCtrl = _selectedMapPicture displayCtrl SELECTED_MAP_PICTURE_IDD;
-
-            _mapPictureCtrl ctrlSetText _mapPicture;
-            _selectedMapPicture ctrlShow true;
-        };
+        [_mapKey] call IHM_fnc_changeVoteMapPicture;
     }
 ];
 
-_btn ctrlAddEventHandler [
-    "onButtonClick",
+_voteButton ctrlAddEventHandler [
+    "buttonClick",
     {
         params ["_control"];
+
+        private _gameMaps = call Data_fnc_getGameMaps;
 
         private _display = findDisplay VOTE_IHM_IDD;
         private _listBox = _display displayCtrl MAPS_LIST_IDD;
 
         private _key = lbCurSel _listBox;
-        private _map = _listBox lbData _key;
+        private _mapKey = _listBox lbData _key;
+
+        private _map = _gameMaps get _mapKey;
+
         private _mapID = _map get "id";
         private _mapName = _map get "name";
-        private _mapPicture = _map get "vote_map_picture";
-        private _mapPosition = _map get "position";
 
         [_mapID] call Vote_fnc_clientVoteForMap;
 
@@ -109,22 +101,6 @@ _btn ctrlAddEventHandler [
         
         hint format ["Vous venez de voter pour la map '%1' !", _mapName];
 
-        private _selectedMapPicture = uiNamespace getVariable "selected_map_picture";
-
-        if (_mapPicture == "") then {
-            _selectedMapPicture ctrlShow false;
-
-            // No map picture use cam
-            // Move camera to pos
-            voteMapPictureCam camPreparePos [(_mapPosition select 0) - CAM_X_DELTA,(_mapPosition select 1) - CAM_Y_DELTA, CAM_Z_DELTA];
-            voteMapPictureCam camPrepareTarget _mapPosition;
-            voteMapPictureCam camCommitPrepared 0;
-        } else {
-            // Print map picture
-            private _mapPictureCtrl = _selectedMapPicture displayCtrl SELECTED_MAP_PICTURE_IDD;
-
-            _mapPictureCtrl ctrlSetText _mapPicture;
-            _selectedMapPicture ctrlShow true;
-        };
+        [_mapKey] call IHM_fnc_changeVoteMapPicture;
     }
 ];
