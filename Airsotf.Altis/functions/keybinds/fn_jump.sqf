@@ -7,11 +7,11 @@
 
 // CONSTANTS DEFINITION
 #define JUMP_SPACE_KEY 57
-#define JUMP_HEIGHT 4.5
-#define JUMP_FORWARD_SPEED 0.4
+#define JUMP_HEIGHT 5
+#define JUMP_FORWARD_SPEED 0.3
 #define JUMP_SOUND "jump"
 #define JUMP_ANIMATION "AovrPercMrunSrasWrflDf"
-#define JUMP_COOLDOWN 3
+#define JUMP_COOLDOWN 2
 #define JUMP_KEY_DEBOUNCE 0.3
 #define JUMP_AVAILABLE_VAR "jump_available"
 #define JUMP_COOLDOWN_VAR "jump_couldown"
