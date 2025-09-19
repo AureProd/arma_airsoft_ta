@@ -6,7 +6,7 @@ class KillFeed
 	fadeout=0;
 	fadein=0;
 	onLoad = "uiNamespace setVariable ['kill_feed',_this select 0]";
-	duration=999999999;
+	duration=1e9;
 		
 	class controls {
 		class KillFeedText: RscStructuredText

@@ -2,7 +2,7 @@ class BarLoading
 {
 	idd = -1;	
 	onLoad = "uiNamespace setVariable ['bar_loading',_this select 0]";
-	duration=999999999;
+	duration=1e9;
 
 	class controls
 	{

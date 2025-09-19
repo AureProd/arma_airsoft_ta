@@ -2,7 +2,7 @@ class SelectedMapPicture
 {
 	idd = -1;	
 	onLoad = "uiNamespace setVariable ['selected_map_picture',_this select 0]";
-	duration=999999999;
+	duration=1e9;
     
 	class controls
 	{
