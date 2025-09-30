@@ -83,6 +83,20 @@ class CfgFunctions
         };
     };
 
+
+    class SpyGameMode
+    {
+        tag = "SPY";
+
+        class Functions
+        {
+            file = "functions\game_modes\spy"; 
+            class playBackgroundMusic {
+                postInit = 1;
+            };            
+        };
+    };
+
     class Vote
     {
         tag = "Vote";

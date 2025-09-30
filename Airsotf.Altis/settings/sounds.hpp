@@ -15,8 +15,8 @@ class CfgMusic
         sound[] = {"sounds\music\download.ogg", 4, 1};
     };
     class BackgroundMusic {
-        name = "BackgroundMusic";
-        sound[] = {"sounds\music\background_music.ogg", 0.4, 1};
+        name = "BackgroundSpyMusic";
+        sound[] = {"sounds\music\background_spy_music.ogg", 0.4, 1};
     };
 	class Vote {
         name = "Vote";
