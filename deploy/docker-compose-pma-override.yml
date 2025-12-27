@@ -1,0 +1,20 @@
+services:
+  phpmyadmin:
+    image: phpmyadmin:latest
+    environment:
+      TZ: Europe/Paris
+      PMA_HOST: db
+      PMA_PORT: 3306
+    restart: always
+    depends_on:
+      - db
+    networks:
+      - default
+    ports:
+      - "8045:80"
+
+volumes:
+  db:
+
+networks:
+  default:

@@ -1,0 +1,48 @@
+services:
+  arma:
+    image: ghcr.io/aureprod/arma:latest
+    restart: always
+    environment:
+      INSTANCE_NAME: $INSTANCE_NAME
+      APP_ENV: $APP_ENV
+      STEAM_USER: $STEAM_USER
+      STEAM_PASSWORD: $STEAM_PASSWORD
+      ADMIN_PASSWORD: $ADMIN_PASSWORD
+      ARMA_PARAMS: -autoinit
+      MYSQL_HOST: db
+      MYSQL_PORT: 3306
+      MYSQL_DATABASE: airsoft
+      MYSQL_USER: superadmin
+      MYSQL_PASSWORD: $MYSQL_PASSWORD
+    ports:
+      - 2302-2306:2302-2306/udp
+    volumes:
+      - ./build:/server
+      - ./Airsotf.Altis:/configs/mpmissions/Airsotf.Altis
+      - ./@mod_server:/configs/servermods/@mod_server
+      - ./deploy/configs/mods.json:/configs/mods.json
+      - ./deploy/configs/server.cfg:/configs/server.cfg
+    depends_on:
+      - db
+    networks:
+      - default
+
+  db:
+    image: mariadb:10.3.35
+    restart: always
+    volumes:
+      - db:/var/lib/mysql
+      - ./deploy/configs/database.sql:/docker-entrypoint-initdb.d/database.sql
+    environment:
+      MYSQL_ROOT_PASSWORD: $MYSQL_ROOT_PASSWORD
+      MYSQL_DATABASE: airsoft
+      MYSQL_USER: superadmin
+      MYSQL_PASSWORD: $MYSQL_PASSWORD
+    networks:
+      - default
+
+volumes:
+  db:
+
+networks:
+  default:

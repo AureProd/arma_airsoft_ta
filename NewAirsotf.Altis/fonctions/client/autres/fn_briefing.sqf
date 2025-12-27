@@ -1,20 +1,11 @@
 
 waitUntil {!isNull player && player == player};
-if(player diarySubjectExists "rules")exitwith{};
 
-player createDiarySubject ["TA","Tactique Airsoft"];
-player createDiarySubject ["Mdj","Mode de jeux dispo"];
+if(player diarySubjectExists "rules") exitwith{};
 
-/*  Example
-	player createDiaryRecord ["", //Container
-		[
-			"", //Subsection
-				"
-				TEXT HERE<br/><br/>
-				"
-		]
-	];
-*/
+player createDiarySubject ["TA", "Tactique Airsoft"];
+player createDiarySubject ["Games", "Mode de jeux dispo"];
+
 player createDiaryRecord [
 	"TA",
 	[
@@ -52,7 +43,7 @@ player createDiaryRecord [
 ];
 
 player createDiaryRecord [
-	"Mdj",
+	"Games",
 	[
 		"Mode de jeu : Piratage", 
 			"
@@ -76,7 +67,7 @@ player createDiaryRecord [
 ];
 
 player createDiaryRecord [
-	"Mdj",
+	"Games",
 	[
 		"Escorte du VIP", 
 			"
@@ -90,7 +81,7 @@ player createDiaryRecord [
 ];
 
 player createDiaryRecord [
-	"Mdj",
+	"Games",
 	[
 		"Mode de jeu : Course aux tickets", 
 			"
